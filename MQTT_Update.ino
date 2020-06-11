@@ -29,12 +29,8 @@ void reconnect() {
         Serial.println("connected");
       #endif
       client.publish(AVAILABILITY_TOPIC, "online");         // Once connected, publish online to the availability topic
-      client.subscribe(TARE_TOPIC);       //Subscribe to tare topic for remote tare
-      client.subscribe(CALIBRATION_TOPIC);       //Subscribe to Calibration topic for remote tare
-      client.subscribe(PAUSESTOP_TOPIC);                    //Subscribe to pausestop topic
-      client.subscribe(EXITDOCK_TOPIC);                     //Subscribe to exit dock topic 
-      client.subscribe(QUICKSTART_TOPIC);                   //Subscribe to quick start topic
-      client.subscribe(GODOCK_TOPIC);                       //Subscribe to go to dock topic
+      client.subscribe(BRUME_TOPIC);                        //Subscribe to BRUME topic 
+      client.subscribe(LED_TOPIC);                          //Subscribe to LED topic 
     } else {
       #ifdef DEBUG
         Serial.print("failed, rc=");
@@ -51,9 +47,6 @@ void Clear_MQTT() {
     Serial.println("Clear MQTT");
   #endif
   client.publish(AVAILABILITY_TOPIC, "online");         // Once connected, publish online to the availability topic
-  client.publish(MOVE_TOPIC, "off");                    // Mow LED
-  client.publish(DOCKED_TOPIC, "off");                  // Dock LED Off
-  client.publish(TRACKING_TOPIC, "off");                // Tracking LED OFF
-  client.publish(PARKED_TOPIC, "off");                  // Parked LED OFF
-  client.publish(CHARGING_TOPIC, "off");                // Charging LED OFF  
+  client.publish(BRUME_TOPIC, "off");                   // BRUME Off
+  client.publish(LED_TOPIC, "off");                     // LED Off
 }

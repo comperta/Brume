@@ -13,11 +13,6 @@
 ///////////***********MQTT*************////////
 WiFiClient espClient;
 PubSubClient client(espClient);
-int Charge_old = 0;
-int Tracking_old = 0;
-int Mower_Parked_old = 0;
-int Mower_Running_Filter_old = 0;
-int Mower_Docked_Filter_old = 0;
 ///////////***********MQTT*************////////
 
 int connectionDelay = 5000; // try to reconnect every 5 seconds

@@ -16,7 +16,8 @@ PubSubClient client(espClient);
 ///////////***********MQTT*************////////
 
 int connectionDelay = 5000; // try to reconnect every 5 seconds
-
+int etat_brume = 0;
+int etat_led = 0;
 
 void setup()
 {

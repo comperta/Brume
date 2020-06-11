@@ -1,15 +1,27 @@
 void callback(char* topic, byte* payload, unsigned int length) {
   if (strcmp(topic, BRUME_TOPIC) == 0) {
-    digitalWrite(BRUME, LOW);
-    delay(3000);
-    digitalWrite(BRUME, HIGH);
-    delay(3000);
+    if (etat_brume == 0) {
+          digitalWrite(BRUME, LOW);
+          delay(3000);
+          etat_brume++;
+    }
+    else{
+          digitalWrite(BRUME, HIGH);
+          delay(3000);
+          etat_brume--; 
+        }
   }
   if (strcmp(topic, LED_TOPIC) == 0) {
-    digitalWrite(BRUME, LOW);
-    delay(3000);
-    digitalWrite(BRUME, HIGH);
-    delay(3000);
+    if (etat_led == 0) {
+          digitalWrite(BRUME, LOW);
+          delay(3000);
+          etat_led++;
+    }
+    else{
+          digitalWrite(BRUME, HIGH);
+          delay(3000);
+          etat_led--; 
+        }
   }
 }
 
